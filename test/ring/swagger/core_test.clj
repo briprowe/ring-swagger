@@ -103,6 +103,9 @@
   (fact "Works with deep schemas"
     (meta (:sub2 (:sub1 (name-schemas ['Root] {:sub1 {:sub2 {:foo Long}}}))))
     => {:name 'RootSub1Sub2})
+  (fact "Add names to schemas inside collections"
+    (meta (:schema (first (name-schemas ['Root] [(s/maybe {:a Long})]))))
+    => {:name 'Root0})
   (fact "Adds names to maps inside Schemas"
     (meta (:schema (:sub (name-schemas ['Root] {:sub (s/maybe {:a s/Str})}))))
     => {:name 'RootSub})
