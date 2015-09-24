@@ -60,7 +60,7 @@
   (fn [e]
     (if (instance? Class e)
       e
-      (class e))))
+      (type e))))
 
 (defmethod json-type nil [_] {:type "void"})
 
